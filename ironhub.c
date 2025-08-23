@@ -1,18 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-// Aproximação de e^x usando série de Taylor
-float my_exp(float x) {
-    float sum = 1.0f;   // termo inicial (n=0)
-    float term = 1.0f;  // cada termo da série
-    for (int n = 1; n < 20; n++) {  // 20 termos → boa precisão
-        term *= x / n;
-        sum += term;
-    }
-    return sum;
-}
-
-void StrengthCalculator () { //Função 1 - Calculadora de Força
-    int reps, rm, peso;
+void StrengthCalculator () {
+    int oneRM, peso, reps;
+    int RM95, RM90, RM85, RM80, RM75;
 
     system("clear");
     printf("╔══════════════════════════════════════════════╗\n");
@@ -23,16 +14,33 @@ void StrengthCalculator () { //Função 1 - Calculadora de Força
     printf("➤ Repetições: ");
     scanf("%d", &reps);
 
-    // Fórmula de Wathen (1994)
-    float exp_val = my_exp(-0.075f * reps);
-    rm = (100.0f * peso) / (48.8f + 53.8f * exp_val);
+    oneRM = peso*(1+(reps/30.0));
+    
+    if (reps == 1) {
+        printf("\n➤ 2RM: %d kg", peso);
+        printf("\n➤ 3RM: %d kg", peso);
+        printf("\n➤ 4RM: %d kg", peso);
+        printf("\n➤ 5RM: %d kg", peso);
+        printf("\n➤ 6RM: %d kg", peso);
+        printf("\n➤ 7RM: %d kg", peso);
+        printf("\n➤ 8RM: %d kg", peso);
+        printf("\n➤ 9RM: %d kg", peso);
+        printf("\n➤ 10RM: %d kg\n", peso);
+    } else {
+        printf("\n➤ 1RM: %d kg", oneRM);
+        
+        RM95 = (95.0/100.0) * oneRM;
+        RM90 = (90.0/100.0) * oneRM;
+        RM85 = (85.0/100.0) * oneRM;
+        RM80 = (80.0/100.0) * oneRM;
+        RM75 = (75.0/100.0) * oneRM;
+    
 
-    if(reps == 1) {
-        printf("\n➤ 100%_1RM: %d kg\n\n", peso);
-    }
-
-    else {
-        printf("\n➤ 1RM: %d kg\n\n", rm);
+        printf("\n➤ 2RM: %d kg", RM95);
+        printf("\n➤ 4RM: %d kg", RM90);
+        printf("\n➤ 6RM: %d kg", RM85);
+        printf("\n➤ 8RM: %d kg", RM80);
+        printf("\n➤ 10RM: %d kg\n", RM75);
     }
 }
 
