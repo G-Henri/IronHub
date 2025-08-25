@@ -6,42 +6,43 @@ void StrengthCalculator () {
     int RM95, RM90, RM85, RM80, RM75;
 
     system("clear");
-    printf("╔══════════════════════════════════════════════╗\n");
-    printf("║          MENU_CALCULADORA DE FORÇA           ║\n");
-    printf("╚══════════════════════════════════════════════╝\n");
-    printf("➤ Carga (kg): ");
+    printf("┏━━━━━━━━━━━━━━━┓\n");
+    printf("┃┏━━━━━━━━━━━━━┓┃\n");
+    printf("┃┃  |||---|||  ┃┃\n");
+    printf("┃┗━━━━━━━━━━━━━┛┃\n");
+    printf("┃[7] [8] [9] [+]┃\n");
+    printf("┃[4] [5] [6] [-]┃\n");
+    printf("┃[1] [2] [3] [x]┃\n");
+    printf("┃[.] [0] [=] [÷]┃\n");
+    printf("┗━━━━━━━━━━━━━━━┛\n");
+
+    printf("[+] Carga (kg): ");
     scanf("%d", &peso);
-    printf("➤ Repetições: ");
+    printf("[+] Repetições: ");
     scanf("%d", &reps);
 
     oneRM = peso*(1+(reps/30.0));
-    
-    if (reps == 1) {
-        printf("\n➤ 2RM: %d kg", peso);
-        printf("\n➤ 3RM: %d kg", peso);
-        printf("\n➤ 4RM: %d kg", peso);
-        printf("\n➤ 5RM: %d kg", peso);
-        printf("\n➤ 6RM: %d kg", peso);
-        printf("\n➤ 7RM: %d kg", peso);
-        printf("\n➤ 8RM: %d kg", peso);
-        printf("\n➤ 9RM: %d kg", peso);
-        printf("\n➤ 10RM: %d kg\n", peso);
-    } else {
-        printf("\n➤ 1RM: %d kg", oneRM);
-        
-        RM95 = (95.0/100.0) * oneRM;
-        RM90 = (90.0/100.0) * oneRM;
-        RM85 = (85.0/100.0) * oneRM;
-        RM80 = (80.0/100.0) * oneRM;
-        RM75 = (75.0/100.0) * oneRM;
-    
+    RM95 = (95.0/100.0) * oneRM;
+    RM90 = (90.0/100.0) * oneRM;
+    RM85 = (85.0/100.0) * oneRM;
+    RM80 = (80.0/100.0) * oneRM;
+    RM75 = (75.0/100.0) * oneRM;
 
-        printf("\n➤ 2RM: %d kg", RM95);
-        printf("\n➤ 4RM: %d kg", RM90);
-        printf("\n➤ 6RM: %d kg", RM85);
-        printf("\n➤ 8RM: %d kg", RM80);
-        printf("\n➤ 10RM: %d kg\n", RM75);
-    }
+    system("clear");
+    printf("╔═════════════════════════╗\n");
+    printf("║    T A B E L A _ R M    ║\n");
+    printf("╠══════╦════════╦═════════╣\n");
+    printf("║ %%RM  ║  REPS  ║  CARGA  ║\n");
+    printf("╠══════╬════════╬═════════╣\n");
+    printf("║ 100%% ║   1RM  ║ %4d kg ║\n", oneRM);
+    printf("║  95%% ║   2RM  ║ %4d kg ║\n", RM95);
+    printf("║  90%% ║   4RM  ║ %4d kg ║\n", RM90);
+    printf("║  85%% ║   6RM  ║ %4d kg ║\n", RM85);
+    printf("║  80%% ║   8RM  ║ %4d kg ║\n", RM80);
+    printf("║  75%% ║  10RM  ║ %4d kg ║\n", RM75);
+    printf("╚══════╩════════╩═════════╝\n");
+
+    printf("[<]- Voltar... ");
 }
 
 int main(){ //Função principal - Tela inicial
