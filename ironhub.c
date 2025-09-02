@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void StrengthCalculator () {
+void strengthcalculator(){ // FUNÇÃO - CALCULADORA DE FORÇA 
     int oneRM, peso, reps;
     int RM95, RM90, RM85, RM80, RM75;
 
@@ -46,9 +46,30 @@ void StrengthCalculator () {
     getchar(); getchar();
 }
 
-int main(){ //Função principal - Tela inicial
+void diet(){
+
+    system("clear");                  
+    printf("                _______               \n");
+    printf("             .-' _____ '-.       /|   \n");
+    printf("   ||||    .' .-'.  ':'-. '.    | |   \n");
+    printf("   ||||   / .''::: .:    '. \   | |   \n");
+    printf("   \__/  / /   :::::'      \ \  | |   \n");
+    printf("    ||  | ;.    ':' `       ; | \ |   \n");
+    printf("    ||  | |       '..       | |  ||   \n");
+    printf("    ##  | ; '      ::::.    ; |  ##   \n");
+    printf("    ##   \ \       '::::   / /   ##   \n");
+    printf("    ##    \ '.      :::  .' /    ##   \n");
+    printf("    ##     '. '-.___'_.-' .'     ##   \n");
+    printf("    ##       '-._______.-'       ##   \n");
+
+    printf("[<]- Voltar... ");
+    getchar(); getchar();
+
+}
+
+int main(){ // FUNÇÃO - MENU_INICIAL
     char op_menu;
-    int loop;
+    int loop = 1;
     
     while (loop) {
         system("clear"); //Comando - Limpar tela inicial
@@ -60,16 +81,22 @@ int main(){ //Função principal - Tela inicial
         printf("║  ██║  ██║  ██║  ╚██████╔╝  ██║ ╚████║     ██║  ██║  ╚██████╔╝  ██████╔╝  ║\n");
         printf("║  ╚═╝  ╚═╝  ╚═╝   ╚═════╝   ╚═╝  ╚═══╝     ╚═╝  ╚═╝   ╚═════╝   ╚═════╝   ║\n");
         printf("╚══════════════════════════════════════════════════════════════════════════╝\n");
-        printf("                       1 . CALCULADORA DE FORÇA                             \n");
+        printf("                       1 . CALCULADORA_RM                                   \n");
+        printf("                       2 . DIETA                                            \n");
         printf("════════════════════════════════════════════════════════════════════════════\n");
         printf("➤ Escolha uma opção: ");
+
+        scanf(" %c", &op_menu);
 
         op_menu = getchar();
 
         switch (op_menu)
         {
         case '1':
-            StrengthCalculator();
+            strengthcalculator();
+            break;
+        case '2':
+            diet();
             break;
         case '0':
             loop = 0;
@@ -80,6 +107,6 @@ int main(){ //Função principal - Tela inicial
             break;
         }
     }
-    
+
     return 0;
 }
